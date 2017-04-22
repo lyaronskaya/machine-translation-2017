@@ -1,0 +1,17 @@
+# Train/test data #
+#######################
+*.gz
+*K
+*tokens
+*training
+*test
+*.wa
+*.txt
+
+# Temp notebooks #
+##################
+*.ipynb
+
+# Complile sources #
+####################
+*.pyc

@@ -16,8 +16,8 @@ def compute_prior_for_model(prior_model, src_idx, trg_idx, src_len, trg_len, src
         return prior_model.get_prior_prob(src_tags[src_idx], trg_tags[trg_idx])
     elif prior_model.__class__.__name__ == 'SourcePOSPriorModel':
         return prior_model.get_prior_prob(src_tags[src_idx], src_tokens[src_idx], trg_tokens[trg_idx]) 
-    elif prior_model.__class.__name__ == 'ComplexPriorModel':
-        return  prior_model.get_prior_prob(, j, I, J)
+    elif prior_model.__class__.__name__ == 'ComplexPriorModel':
+        return  prior_model.get_prior_prob(src_idx, trg_idx, src_len, trg_len)
     else:
         assert False, "Not implemented model"
     
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     if use_null:
         src_corpus = [['_NULL_'] + e for e in src_corpus]
         
-    prior_model = eval(prior_model_name)(src_corpus, trg_corpus)
+    prior_model = eval(prior_model_name)()
     translation_model = TranslationModel(src_corpus, trg_corpus)
     
     alignments = align_corpus(src_corpus, trg_corpus, num_iterations, prior_model, translation_model)
@@ -124,6 +124,6 @@ if __name__ == "__main__":
        
     if dump_translational_model:
         with open(sys.argv[7], 'w') as f:
-            f.writeline('\n'.join([' '.join([e, f, str(prob)]) for e, d in translation_model._trg_given_src_probs.iteritems() for f, prob in d.iteritems()]))
+            f.write('\n'.join([' '.join([e, f, str(prob)]) for e, d in translation_model._trg_given_src_probs.iteritems() for f, prob in d.iteritems()]))
 
     utils.output_alignments_per_test_set(alignments, output_prefix)
