@@ -1,5 +1,5 @@
 # WordEmbeddings
-Implementation of simple relations detections using mean of differences between two words as cluster of relation. A pair is classified as random(doesn't belong to a common relation) if it's std 
+Implementation of simple relations detection using mean of differences between two words as cluster of relation. A pair is classified as random(doesn't belong to a common relation) if it's std is something like std of train random pairs. Otherwise we can define label of relation as label of the nearest class in the vector space of mean differences for particular label.
 
 ## Download data
 ```
@@ -33,4 +33,5 @@ Detecting and labeling relations scores
 | Russian  |   0.941   |  0.947 | 0.944 |
 | French   |   0.993   |  0.993 | 0.993 |
 
-It looks like embeddings for french words are better trained.
+It looks like embeddings for french words are better trained. 
+Also I noticed that labeling relations gives worse result that just detecting relations. I think using something more clever(e.g look at the mark not only of the nearest neighbor, but for example greed search through the number of neighbors) will improve the score.
