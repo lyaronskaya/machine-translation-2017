@@ -13,7 +13,7 @@ python detect_relations.py hw3/embeddings/wiki-en/vocab-cbow-0-64-2-800.txt hw3/
 ```
 To evaluate predictions
 ```
-evaluate.py hw3/relational_data/en_morph.test.labels hw3/en_morph.test.my_labels
+python evaluate.py hw3/relational_data/en_morph.test.labels hw3/en_morph.test.my_labels
 ```
 ## Evaluation
 
@@ -33,5 +33,6 @@ Detecting and labeling relations scores
 | Russian  |   0.941   |  0.947 | 0.944 |
 | French   |   0.993   |  0.993 | 0.993 |
 
-It looks like embeddings for french words are better trained. 
+It looks like embeddings for french words are better trained(Pardon my french). 
+
 Also I noticed that labeling relations gives worse result that just detecting relations. I think using something more clever(e.g look at the mark not only of the nearest neighbor, but for example greed search through the number of neighbors) will improve the score.
