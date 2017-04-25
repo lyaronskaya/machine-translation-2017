@@ -14,11 +14,11 @@ tar -xvzf additional.tar.gz
 ```
 
 ## Implemented models
-Markup : 1. IBM Model 1 
-         2. IBM Model 1 with complex prior P(j | i, I, J) where I divided values of I and J by the value of bin in division by percentiles(so in total I had 10 values of I and 10 values of J).
-         3. previous model with lemmas instead of tokens for chech
-         4. IBM Model 1 with prior P(tag(f) | tag(e)) and lemmas for chech
-         5. Second model with '_NULL_' in the beginning of every source sentence
+1. IBM Model 1 
+2. IBM Model 1 with complex prior P(j | i, I, J) where I divided values of I and J by the value of bin in division by percentiles(so in total I had 10 values of I and 10 values of J).
+3. previous model with lemmas instead of tokens for chech
+4. IBM Model 1 with prior P(tag(f) | tag(e)) and lemmas for chech
+5. Second model with '_NULL_' in the beginning of every source sentence
 
 
 ## Evaluation
